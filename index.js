@@ -28,7 +28,7 @@ app.use(helmet());
 app.use(morgan("common"));
 
 app.get('/',(req,res) => {
-  res.status(200).send("Health Ok.")
+ return res.status(200).send("Health Ok.")
 });
 
 const storage = multer.diskStorage({
