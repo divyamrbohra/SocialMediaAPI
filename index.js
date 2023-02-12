@@ -27,6 +27,10 @@ app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
 
+app.get('/',(req,res) => {
+  res.status(200).send("Health Ok.")
+});
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "public/images");
@@ -48,6 +52,8 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
+
+
 
 app.listen(8800, () => {
   console.log("Backend server is running!");
