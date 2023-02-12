@@ -11,6 +11,10 @@ const postRoute = require("./routes/posts");
 const router = express.Router();
 const path = require("path");
 
+app.get('/',(req,res) => {
+  return res.status(200).send("Health Ok.")
+ });
+
 dotenv.config();
 
 mongoose.connect(
@@ -27,9 +31,7 @@ app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
 
-app.get('/',(req,res) => {
- return res.status(200).send("Health Ok.")
-});
+
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
