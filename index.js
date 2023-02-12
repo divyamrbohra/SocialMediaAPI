@@ -10,13 +10,6 @@ const authRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
 const router = express.Router();
 const path = require("path");
-const cors = require('cors');
-app.use(cors({
-    origin: '*'
-}));
-app.get('/',(req,res) => {
-  return res.status(200).send("Health Ok.")
- });
 
 dotenv.config();
 
